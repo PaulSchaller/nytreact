@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Saved from "../components/Saved";
-import Search from "../components/Search";
-import Results from "./components/Home";
-import nytAPI from "../utils/nytAPI";
+import Saved from "../../components/Saved";
+import Search from "../../components/Search";
+import Results from "../../components/Home";
+import nytAPI from "../../utils/nytAPI";
 
 class Main extends Component {
 
