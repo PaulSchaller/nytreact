@@ -141,7 +141,7 @@ class Main extends Component {
           </div>
           <footer>
             <hr />
-            <div class="container" id="footerA">
+            <div className="container" id="footerA">
                 Copyright &copy; 2017 Paul Schaller
             </div> 
           </footer>
