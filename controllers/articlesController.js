@@ -4,7 +4,7 @@ module.exports = {
   findAll: function(req, res) {
     db.Article
       .find(req.query)
-      .sort({ date: -1 })
+      .sort({ saved: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -18,6 +18,16 @@ module.exports = {
     db.Article
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  update: function(req, res) {
+    db.Article
+      .findById({ _id: req.params.id })
+      .then(dbModel => {
+        dbModel.saved = 1;
+        return dbModel.save();
+        })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

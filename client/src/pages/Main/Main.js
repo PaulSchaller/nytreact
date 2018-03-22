@@ -10,18 +10,18 @@ class Main extends Component {
     topic: "",
     startYear: "",
     endYear: "",
-    articles: [],
-    saved: []
+    Articles: [],
+    Saved: []
   };
 
   // When the component mounts, get a list of all saved articles and update this.state.saved
   componentDidMount() {
-    this.getSavedArticles()
+    this.loadSavedBooks()
   }
 
   // Method for getting saved articles (all articles) from the db
-  getSavedArticles = () => {
-    nytAPI.getArticle()
+  loadSavedBooks = () => {
+    nytAPI.getSavedArticles()
       .then((res) => {
         this.setState({ saved: res.data });
       });
@@ -29,6 +29,9 @@ class Main extends Component {
 
   // A helper method for rendering one search results div for each article
   renderArticles = () => {
+    if (!this.state.articles) {
+      return;
+    }
     return this.state.articles.map(article => (
       <Results
         _id={article._id}
@@ -37,13 +40,16 @@ class Main extends Component {
         date={article.pub_date}
         url={article.web_url}
         handleSaveButton={this.handleSaveButton}
-        getSavedArticles={this.getSavedArticles}
       />
    ));
   }
 
   // A helper method for rendering one div for each saved article
   renderSaved = () => {
+    if (!this.state.saved) {
+      return;
+    }
+
     return this.state.saved.map(save => (
       <Saved
         _id={save._id}
@@ -90,9 +96,8 @@ class Main extends Component {
   handleSaveButton = (id) => {
     const findArticleByID = this.state.articles.find((el) => el._id === id);
     console.log("findArticleByID: ", findArticleByID);
-    const newSave = {title: findArticleByID.headline.main, date: findArticleByID.pub_date, url: findArticleByID.web_url};
-    nytAPI.saveArticle(newSave)
-    .then(this.getSavedArticles());
+    nytAPI.updateArticle(id)
+    .then(nytAPI.getSavedArticles());
   }
 
   // When delete article button is clicked, remove article from db

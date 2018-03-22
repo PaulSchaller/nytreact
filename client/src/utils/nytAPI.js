@@ -9,16 +9,19 @@ const nytAPI = {
     return axios.get(queryURL);
   },
   // Retrieves saved articles from the db
-  getArticle: function() {
-    return axios.get("/api/saved");
+  getSavedArticles: function() {
+    return axios.get("/api/articles");
   },
   // Saves a new article to the db
   saveArticle: function(articleObj) {
-    return axios.post("/api/saved", articleObj);
+    return axios.post("/api/articles", articleObj);
   },
   // Deletes an article from the db
   deleteArticle: function(id) {
-    return axios.delete(`/api/saved/${id}`);
+    return axios.delete(`/api/articles/${id}`);
+  },
+  updateArticle: function(id) {
+    return axios.put(`/api/articles/${id}`);
   }
 };
 
