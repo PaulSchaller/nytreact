@@ -3,6 +3,7 @@ import Saved from "../../components/Saved";
 import Search from "../../components/Search";
 import Results from "../../components/Home";
 import nytAPI from "../../utils/nytAPI";
+import "./Main.css";
 
 class Main extends Component {
 
@@ -46,11 +47,12 @@ class Main extends Component {
 
   // A helper method for rendering one div for each saved article
   renderSaved = () => {
-    if (!this.state.saved) {
+    if (!this.state.Saved) {
+      console.log("Saved");
       return;
     }
 
-    return this.state.saved.map(save => (
+    return this.state.Saved.map(save => (
       <Saved
         _id={save._id}
         key={save._id}
@@ -92,18 +94,25 @@ class Main extends Component {
       });
   }
 
-  // When save article button is clicked, add article to db
+   // When save article button is clicked, add article to db
   handleSaveButton = (id) => {
     const findArticleByID = this.state.articles.find((el) => el._id === id);
     console.log("findArticleByID: ", findArticleByID);
-    nytAPI.updateArticle(id)
+    console.log("Here we are");
+    const newSave = {title: findArticleByID.headline.main, date: findArticleByID.pub_date, url: findArticleByID.web_url};
+    console.log(newSave);
+    nytAPI.saveArticle(newSave)
     .then(nytAPI.getSavedArticles());
+    console.log(newSave);
+    console.log("Have Fun");
+    nytAPI.getSavedArticles();
+    console.log("Have Fun");
   }
 
   // When delete article button is clicked, remove article from db
   handleDeleteButton = (id) => {
     nytAPI.deleteArticle(id)
-      .then(this.getSavedArticles());
+      .then(nytAPI.getSavedArticles());
   }
 
   render() {

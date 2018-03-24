@@ -20,15 +20,5 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  },
-  update: function(req, res) {
-    db.Article
-      .findById({ _id: req.params.id })
-      .then(dbModel => {
-        dbModel.saved = 1;
-        return dbModel.save();
-        })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
   }
 };

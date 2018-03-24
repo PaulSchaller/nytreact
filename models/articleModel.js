@@ -5,22 +5,18 @@ const Schema = mongoose.Schema;
 // This is similar to a Sequelize model
 const articleSchema = new Schema({
   // `title` is required and of type String
-  title: {
-    type: String,
-    required: true
-  },
-  // `link` is required and of type String
   date: {
     type: String,
     required: true
   },
-  link: {
+  // `link` is required and of type String
+  title: {
     type: String,
     required: true
   },
-  saved: {
-    type: Boolean,
-    default: false
+  url: {
+    type: String,
+    required: true
   }
 });
 

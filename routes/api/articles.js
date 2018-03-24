@@ -8,6 +8,5 @@ module.exports = function(app) {
 	// Matches with "/api/books/:id"
 	app
 	  .route("/api/articles/:id")
-	  .put(articlesController.update)
 	  .delete(articlesController.remove);
 };
