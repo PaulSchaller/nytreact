@@ -18,6 +18,8 @@ This New York Times API project is just as functional, new, and clever as those.
 ##How It Works
 ![2018-03-24 3](https://user-images.githubusercontent.com/30198872/37861833-56322eae-2f18-11e8-89d2-eab2e404dfaa.png)
 
+![2018-03-24 4](https://user-images.githubusercontent.com/30198872/37861834-598aa892-2f18-11e8-82e2-720679c2cca1.png)
+
 ![2018-03-24 6](https://user-images.githubusercontent.com/30198872/37861691-6bdf2c8c-2f15-11e8-8742-438ad77eb27d.png)
 
 ![2018-03-24 5](https://user-images.githubusercontent.com/30198872/37861926-e70f8ed8-2f1a-11e8-92d2-c966af486af3.png)
