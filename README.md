@@ -2,7 +2,7 @@
 
 ## *About This Program*
 
-This program allows a user to choose a topic to research with the New York Times.  The user chooses a topic and a range of dates within the New York Times archives to research from.  Once these selections are made, a list of articles related to the topic is given.  From this list, the user can select articles to read by clicking a button on the button which will link the user to the article on the New York Times API.  If the user wants to save this article for future reference, he can click a button that will save the article. 
+This program allows a user to choose a topic to research with the New York Times.  The user chooses a topic and a range of dates within the New York Times archives to research from.  Once these selections are made, a list of articles related to the topic is given.  From this list, the user can select articles to read by clicking a button which will link the user to the article on the New York Times API.  If the user wants to save this article for future reference, he can click a button that will save the article. 
 
 Once an article is saved, it will be included in a database of other saved articles.  From this list, the user can link to the article or decide to delete the article from the collection.  
 
