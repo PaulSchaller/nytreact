@@ -1,3 +1,4 @@
+//component for the form for user searches
 import React from "react";
 
 const Search = props =>
@@ -8,7 +9,7 @@ const Search = props =>
           <div className="panel-heading">
             <h3 className="panel-title">
               <strong>
-                <i className="fa fa-search" aria-hidden="true"></i> Search
+                <i className="" aria-hidden="true"></i> Search
               </strong>
             </h3>
           </div>

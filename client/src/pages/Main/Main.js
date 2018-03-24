@@ -1,3 +1,4 @@
+//javascript to handle the main page and component rendering
 import React, { Component } from "react";
 import Saved from "../../components/Saved";
 import Search from "../../components/Search";
@@ -25,10 +26,12 @@ class Main extends Component {
     nytAPI.getSavedArticles()
       .then((res) => {
         this.setState({ saved: res.data });
+        console.log("loadBooks");
+        console.log(this.state.saved);
       });
   }
 
-  // A helper method for rendering one search results div for each article
+  // A helper method for rendering one search results div for each article from the scrape
   renderArticles = () => {
     if (!this.state.articles) {
       return;
@@ -60,27 +63,22 @@ class Main extends Component {
         date={save.date}
         url={save.url}
         handleDeleteButton={this.handleDeleteButton}
-        getSavedArticles={this.getSavedArticles}
       />
     ));
   }
 
-  // Keep track of what user types into topic input so that input can be grabbed later
+  // handling user input before form is submitted and grabbed
   handleTopicChange = (event) => {
     this.setState({ topic: event.target.value });
   }
-
-  // Keep track of what user types into topic input so that input can be grabbed later
   handleStartYearChange = (event) => {
     this.setState({ startYear: event.target.value });
   }
-
-  // Keep track of what user types into topic input so that input can be grabbed later
   handleEndYearChange = (event) => {
     this.setState({ endYear: event.target.value });
   }
 
-  // When the search form submits, perform NYT api search with user input
+  //submit the form with the user topic choice and do a new york times search
   handleFormSubmit = (event) => {
     event.preventDefault();
     console.log("Getting NYT Articles");
@@ -94,7 +92,7 @@ class Main extends Component {
       });
   }
 
-   // When save article button is clicked, add article to db
+   // add article to mongo db when save button is clicked
   handleSaveButton = (id) => {
     const findArticleByID = this.state.articles.find((el) => el._id === id);
     console.log("findArticleByID: ", findArticleByID);
@@ -109,12 +107,13 @@ class Main extends Component {
     console.log("Have Fun");
   }
 
-  // When delete article button is clicked, remove article from db
+  // When delete button is clicked, remove article from db
   handleDeleteButton = (id) => {
     nytAPI.deleteArticle(id)
       .then(nytAPI.getSavedArticles());
   }
 
+  //render the webpage
   render() {
     return (
 
@@ -141,7 +140,7 @@ class Main extends Component {
                   <div className="panel-heading">
                     <h3 className="panel-title">
                       <strong>
-                        <i className="fa fa-download" aria-hidden="true"></i> Saved Articles</strong>
+                        <i className="" aria-hidden="true"></i> Saved Articles</strong>
                     </h3>
                   </div>
                   <div className="panel-body">

@@ -1,3 +1,4 @@
+//creates the component for the scraped articles from the New York Times
 import React from "react";
 
 const Results = props =>

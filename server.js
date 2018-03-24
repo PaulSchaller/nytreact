@@ -1,3 +1,4 @@
+//dependencies
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
@@ -15,7 +16,7 @@ app.use(function (err, req, res, next) {
 })
 
 
-// Serve up static assets (usually on heroku)
+// Serve up static assets (on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
@@ -26,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(bodyParser.json());
 
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+// If deployed, use the deployed database. Otherwise use the local mongo nytreact database
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
@@ -36,7 +37,6 @@ mongoose.connect(MONGODB_URI, {
 });
 
 // Send every request to the React app
-// Define any API routes before this runs
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
