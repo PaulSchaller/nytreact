@@ -16,6 +16,7 @@ This New York Times API project is just as functional, new, and clever as those.
 
 ```
 ##How It Works
+![2018-03-24 6](https://user-images.githubusercontent.com/30198872/37861691-6bdf2c8c-2f15-11e8-8742-438ad77eb27d.png)
 
 ##Production
 I started my project with a *Create React App* as a boilerplate.  I used current versions of *React* and *React-Router-Dom* for this assignment.  To save articles, I used a *MongoDB* database.  Also utilized were Node and Express.
