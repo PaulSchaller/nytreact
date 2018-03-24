@@ -9,7 +9,7 @@ Once an article is saved, it will be included in a database of other saved artic
 ## *A Clever Program*
 ```
 I love to research topics on the internet.  
-*The New York Times API* is very useful and this program allows the user to take advantage of it.  
+The New York Times API is very useful and this program allows the user to take advantage of it.  
 When I started college, I was thrilled with being able to use the computer for word processing, 
       so I could easily edit papers.  
 Students in high schools nowadays will use videos from the internet as class instruction and homework.  
